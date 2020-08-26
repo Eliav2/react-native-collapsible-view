@@ -1,0 +1,17 @@
+{
+  "name": "@eliav2/react-native-expandable-view",
+  "version": "1.0.0",
+  "description": "An expandable View element implemented using react-native-collapsible",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm start --prefix ./example"
+  },
+  "author": "Eliav Louski",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-native": "^0.63.2",
+    "react-native-collapsible": "^1.5.3"
+  }
+}
