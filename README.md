@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # react-native-collapsible-view
 
 <!-- _Animated collapsible component for React Native using the Animated API_ -->
@@ -114,3 +115,7 @@ examples:
 ##### noArrow = false
 
 ##### style = {}
+=======
+# react-native-expandable-view
+An expandable View element implemented using react-native-collapsible
+>>>>>>> 01630152f007ee198a25ce180c73606e5d9e996a
