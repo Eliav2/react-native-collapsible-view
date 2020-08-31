@@ -11,6 +11,7 @@ export default ({
   isRTL = "auto",
   duration = 300,
   collapsibleProps = {},
+  collapsibleContainerStyle = {},
   arrowSize = 24,
   noArrow = false,
   style = {},
@@ -101,7 +102,7 @@ export default ({
         {TitleElement}
       </View>
       {mounted ? (
-        <View style={{ width: "100%" }}>
+        <View style={{ width: "100%", ...collapsibleContainerStyle }}>
           <Collapsible onAnimationEnd={handleAnimationEnd} collapsed={!show} {...{ duration, ...collapsibleProps }}>
             {children}
           </Collapsible>

@@ -20,8 +20,9 @@ A simple component of a common use case of collapsible - a visible title with a 
 ### gif
 
 <!-- ![collapsible-view](https://user-images.githubusercontent.com/47307889/90984281-9d8a1880-e57c-11ea-9c59-bba46df80f90.gif) -->
+<!-- ![collapsible-view2](https://user-images.githubusercontent.com/47307889/91665613-865ca500-eaff-11ea-91bd-ef3c5a25fb7d.gif) -->
 
-![collapsible-view2](https://user-images.githubusercontent.com/47307889/91665613-865ca500-eaff-11ea-91bd-ef3c5a25fb7d.gif)
+![collapsible-view1 1](https://user-images.githubusercontent.com/47307889/91768054-bda58180-ebe5-11ea-91f7-37eb4fb99c42.gif)
 
 ### Snack
 
@@ -126,6 +127,25 @@ examples:
 
 default value: `collapsibleProps = {{}}`
 
+#### style
+
+give custom style to the view containing the collapsible(the container).
+examples:
+
+- `style={{ borderWidth: 0, backgroundColor: "#6495ED" }}`
+
+default value: `style={{}}`
+
+#### collapsibleContainerStyle
+
+A styling for the container of the collapsible(the entire expandable view beneath the title).
+can be useful in some cases, like implantation of pretty dropdown menu with absolute positioning(see example at the gif and snack demo above).
+examples:
+
+- ` collapsibleContainerStyle={{position: "absolute", top: "100%"}}`
+
+default value: ` collapsibleContainerStyle={{}}`
+
 #### arrowSize
 
 set ths size of the arrow.
@@ -143,12 +163,3 @@ examples:
 - `noArrow = {true}`
 
 default value: `noArrow = {false}`
-
-#### style
-
-give custom style to the view containing the collapsible(the container).
-examples:
-
-- `style={{ borderWidth: 0, backgroundColor: "#6495ED" }}`
-
-default value: `style={{}}`
