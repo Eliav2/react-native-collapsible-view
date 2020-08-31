@@ -95,7 +95,7 @@ export default ({
       >
         {noArrow ? null : (
           <Animated.View style={{ transform: [{ rotate: rotateAnim }] }}>
-            <Image style={{ width: arrowSize, height: arrowSize }} source={require("../assets/arrow-down.png")} />
+            <Image style={{ width: arrowSize, height: arrowSize }} source={require("./arrow-down.png")} />
           </Animated.View>
         )}
         {TitleElement}
