@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity, I18nManager, Animated, Easing } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity, I18nManager, Animated, Easing } from "react-native";
 import Collapsible from "react-native-collapsible";
-// import SvgIcon from "react-native-svg-icon";
 import ArrowDownIcon from "./ArrowDownIcon";
 
 export default ({
@@ -17,6 +16,9 @@ export default ({
   arrowStyling,
   noArrow = false,
   style = {},
+  activeOpacityFeedback = 0.3,
+  titleProps = {},
+  titleStyle = {},
 }) => {
   let controlled = expanded === null ? false : true;
   const [show, setShow] = useState(initExpanded);
@@ -61,11 +63,16 @@ export default ({
   };
 
   // place the arrow on the left or the right based on the device direction and isRTL property
-  let RTLdir = "row";
+  let rowDir = "row";
   if (isRTL === "auto") isRTL = I18nManager.isRTL;
-  else if (isRTL !== I18nManager.isRTL) RTLdir = "row-reverse";
+  else if (isRTL !== I18nManager.isRTL) rowDir = "row-reverse";
 
-  const rotateAngle = ((isRTL ? 90 : -90) * 3.14159) / 180;
+  const rotateAngle = isRTL ? 90 : -90;
+  const rotateAnimDeg = rotateAnim.interpolate({
+    inputRange: [0, 360],
+    outputRange: ["0deg", "360deg"],
+  });
+
   const TitleElement = typeof title === "string" ? <Text style={styles.TitleText}>{title}</Text> : title;
 
   useEffect(() => {
@@ -88,15 +95,21 @@ export default ({
   });
 
   return (
-    <TouchableOpacity style={[styles.container, style]} onPress={handleToggleShow}>
+    <TouchableOpacity
+      style={[styles.container, style]}
+      onPress={handleToggleShow}
+      activeOpacity={activeOpacityFeedback}
+    >
       <View
         style={{
-          flexDirection: RTLdir,
+          flexDirection: rowDir,
           alignItems: "center",
+          ...titleStyle,
         }}
+        {...titleProps}
       >
         {noArrow ? null : (
-          <Animated.View style={{ transform: [{ rotate: rotateAnim }] }}>
+          <Animated.View style={{ transform: [{ rotate: rotateAnimDeg }] }}>
             <ArrowDownIcon {...arrowStyling} />
           </Animated.View>
         )}

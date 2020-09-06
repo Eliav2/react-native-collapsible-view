@@ -8,12 +8,12 @@ A simple component of a common use case of collapsible - a visible title with a 
 
 #### main features
 
-- arrow animation indicating whether the collapsible is expanded or not.
-- unmountOnCollapse property which unmount the collapsible when it is not expanded(can be very useful when considering performance of a page with multiple collapsible views).
-- support both RTL and LTR languages(if not specified, default direction based on the device language is chosen).
-- state can be managed by other component(controlled) or independently(uncontrolled).
-- super simple API but yet customizable.
-- supported both on Android and iOS.
+- Super simple API but fully customizable!
+- Arrow animation indicating whether the collapsible is expanded or not.
+- unmountOnCollapse property which unmount the collapsible when it is not expanded(very useful for performance! use wisely!).
+- Support both RTL and LTR languages(if not specified, default direction based on the device language is chosen).
+- State can be managed by other component(controlled) or independently(uncontrolled).
+- Fully supported both on Android, iOS and Web!
 
 ## Demo
 
@@ -48,7 +48,7 @@ import CollapsibleView from "@eliav2/react-native-collapsible-view";
 
 export default () => {
   return (
-    <CollapsibleView title="Simple collapsible">
+    <CollapsibleView title="Simple Collapsible View">
       <Text>hey there!</Text>
     </CollapsibleView>
   );
@@ -130,12 +130,21 @@ default value: `collapsibleProps = {{}}`
 
 #### style
 
-give custom style to the view containing the collapsible(the container).
+give custom style to the touchable containing the collapsible(the container).
 examples:
 
 - `style={{ borderWidth: 0, backgroundColor: "#6495ED" }}`
 
 default value: `style={{}}`
+
+#### activeOpacityFeedback
+
+determines the opacity level with the touchable is clicked.
+examples:
+
+- `activeOpacityFeedback = {1}` will disable any feedback.
+
+default value: `activeOpacityFeedback = {0.3}`
 
 #### collapsibleContainerStyle
 
@@ -178,4 +187,5 @@ default value: `noArrow = {false}`
 
 - 1.0.0 - Initial release.
 - 1.1.0 - added `collapsibleContainerStyle` property.
-- 1.2.0 - now arrow icon is SVG. this enhance performance and enables arrow customization. `arrowSize` property is now replaced with `arrowStyling`.
+- 1.2.0 - now the arrow icon is SVG (and not a PNG file). this enhance performance and enables arrow customization. `arrowSize` property is now replaced with `arrowStyling`.
+- 1.3.0 - now tested and fully supported on react-native web! in addition: `titleStyle` and `titleProps` properties added. `activeOpacityFeedback` property added.
