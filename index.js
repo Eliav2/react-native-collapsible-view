@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity, I18nManager, Animated, Easing } from "react-native";
 import Collapsible from "react-native-collapsible";
+// import SvgIcon from "react-native-svg-icon";
+import ArrowDownIcon from "./ArrowDownIcon";
 
 export default ({
   children,
@@ -12,7 +14,7 @@ export default ({
   duration = 300,
   collapsibleProps = {},
   collapsibleContainerStyle = {},
-  arrowSize = 24,
+  arrowStyling,
   noArrow = false,
   style = {},
 }) => {
@@ -22,7 +24,6 @@ export default ({
 
   const rotateAnim = useRef(new Animated.Value(0)).current;
 
-  // let _show = show;
   if (controlled) {
     if (!mounted && expanded) setMounted(true);
   }
@@ -96,7 +97,7 @@ export default ({
       >
         {noArrow ? null : (
           <Animated.View style={{ transform: [{ rotate: rotateAnim }] }}>
-            <Image style={{ width: arrowSize, height: arrowSize }} source={require("./arrow-down.png")} />
+            <ArrowDownIcon {...arrowStyling} />
           </Animated.View>
         )}
         {TitleElement}

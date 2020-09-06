@@ -21,8 +21,9 @@ A simple component of a common use case of collapsible - a visible title with a 
 
 <!-- ![collapsible-view](https://user-images.githubusercontent.com/47307889/90984281-9d8a1880-e57c-11ea-9c59-bba46df80f90.gif) -->
 <!-- ![collapsible-view2](https://user-images.githubusercontent.com/47307889/91665613-865ca500-eaff-11ea-91bd-ef3c5a25fb7d.gif) -->
+<!-- ![collapsible-view1 1](https://user-images.githubusercontent.com/47307889/91768054-bda58180-ebe5-11ea-91f7-37eb4fb99c42.gif) -->
 
-![collapsible-view1 1](https://user-images.githubusercontent.com/47307889/91768054-bda58180-ebe5-11ea-91f7-37eb4fb99c42.gif)
+![collapsible-view1 2](https://user-images.githubusercontent.com/47307889/92328604-8feb8d00-f06a-11ea-966d-f7d0e3b1a0d7.gif)
 
 ### Snack
 
@@ -146,14 +147,23 @@ examples:
 
 default value: ` collapsibleContainerStyle={{}}`
 
-#### arrowSize
+#### arrowStyling
 
-set ths size of the arrow.
+object with the optional following properties:
+
+1. size {number} - how big the arrow will be.
+2. thickness {number} - how thick the arrow will be.
+3. color {string} - color of the arrow.
+4. rounded {boolean} - make the corners of the arrow rounded or not.
+5. polylineProps {object} - optional extra properties passed down to the [react-native svg component](https://github.com/react-native-community/react-native-svg). can be used in advanced customization.
+6. svgProps {object} - same as polylineProps but passed to the svg canvas.
+
 examples:
 
-- `arrowSize = {48}`
+- `arrowStyling={{ size: 72, rounded: true, thickness: 12, color: "purple" }}`
+- `arrowStyling={{size: 72,thickness: 12,svgProps: { style: { backgroundColor: "yellow" } },polylineProps: { strokeLinejoin: "bevel" }}}`
 
-default value: `arrowSize = {24}`
+default value: `arrowStyling={ size = 24,thickness = size / 16,color = "black",rounded = false,svgProps = {},polylineProps = {}}`
 
 #### noArrow
 
@@ -163,3 +173,9 @@ examples:
 - `noArrow = {true}`
 
 default value: `noArrow = {false}`
+
+## Versions
+
+1.0.0 - Initial release.
+1.1.0 - added `collapsibleContainerStyle` property.
+1.2.0 - now arrow icon is SVG. this enhance performance and enables arrow customization. `arrowSize` property is now replaced with `arrowStyling`.
