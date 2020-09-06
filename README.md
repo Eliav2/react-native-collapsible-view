@@ -13,15 +13,11 @@ A simple component of a common use case of collapsible - a visible title with a 
 - unmountOnCollapse property which unmount the collapsible when it is not expanded(very useful for performance! use wisely!).
 - Support both RTL and LTR languages(if not specified, default direction based on the device language is chosen).
 - State can be managed by other component(controlled) or independently(uncontrolled).
-- Fully supported both on Android, iOS and Web!
+- Fully supported on Android, iOS and Web!
 
 ## Demo
 
 ### gif
-
-<!-- ![collapsible-view](https://user-images.githubusercontent.com/47307889/90984281-9d8a1880-e57c-11ea-9c59-bba46df80f90.gif) -->
-<!-- ![collapsible-view2](https://user-images.githubusercontent.com/47307889/91665613-865ca500-eaff-11ea-91bd-ef3c5a25fb7d.gif) -->
-<!-- ![collapsible-view1 1](https://user-images.githubusercontent.com/47307889/91768054-bda58180-ebe5-11ea-91f7-37eb4fb99c42.gif) -->
 
 ![collapsible-view1 2](https://user-images.githubusercontent.com/47307889/92328604-8feb8d00-f06a-11ea-966d-f7d0e3b1a0d7.gif)
 
@@ -164,8 +160,8 @@ object with the optional following properties:
 2. thickness {number} - how thick the arrow will be.
 3. color {string} - color of the arrow.
 4. rounded {boolean} - make the corners of the arrow rounded or not.
-5. polylineProps {object} - optional extra properties passed down to the [react-native svg component](https://github.com/react-native-community/react-native-svg). can be used in advanced customization.
-6. svgProps {object} - same as polylineProps but passed to the svg canvas.
+5. polylineProps {object} - optional extra properties passed down to the react-native polylineProps component. can be used in advanced customization.
+6. svgProps {object} - same as polylineProps but passed to the svg canvas. for 5-6 properties see [react-native-svg](<(https://github.com/react-native-community/react-native-svg)>).
 
 examples:
 
@@ -182,6 +178,10 @@ examples:
 - `noArrow = {true}`
 
 default value: `noArrow = {false}`
+
+#### `titleStyle` and `titleProps`
+
+you can guess by the name. default value={}.
 
 ## Versions
 
