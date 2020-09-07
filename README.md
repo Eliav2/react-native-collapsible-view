@@ -160,7 +160,7 @@ object with the optional following properties:
 2. thickness {number} - how thick the arrow will be.
 3. color {string} - color of the arrow.
 4. rounded {boolean} - make the corners of the arrow rounded or not.
-5. polylineProps {object} - optional extra properties passed down to the react-native polylineProps component. can be used in advanced customization.
+5. polylineProps {object} - optional extra properties passed down to the react-native svg component drawing the arrow. can be used in advanced customization.
 6. svgProps {object} - same as polylineProps but passed to the svg canvas. for 5-6 properties see [react-native-svg](<(https://github.com/react-native-community/react-native-svg)>).
 
 examples:
