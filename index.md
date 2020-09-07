@@ -168,8 +168,8 @@ object with the optional following properties:
 
 examples:
 
-- `arrowStyling={{ size: 72, rounded: true, thickness: 12, color: "purple" }}`
-- `arrowStyling={{size: 72,thickness: 12,svgProps: { style: { backgroundColor: "yellow" } },polylineProps: { strokeLinejoin: "bevel" }}}`
+- `arrowStyling={{ size: 72, rounded: true, thickness: 12, color: "purple" }}`.
+- `arrowStyling={{size: 72,thickness: 12,svgProps: { style: { backgroundColor: "yellow" } },polylineProps: { strokeLinejoin: "bevel" }}}`.
 
 default value: `arrowStyling={ size = 24,thickness = size / 16,color = "black",rounded = false,svgProps = {},polylineProps = {}}`
 
