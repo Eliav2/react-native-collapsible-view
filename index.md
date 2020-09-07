@@ -175,7 +175,7 @@ default value: `arrowStyling={ size = 24,thickness = size / 16,color = "black",r
 
 #### noArrow
 
-if set to true the arrow indicating whether the collapsible-view is expanded or not will not be displayed.
+if set to true the arrow indicating whether the collapsible-view is expanded or not will not be displayed. 
 examples:
 
 - `noArrow = {true}`
