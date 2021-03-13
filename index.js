@@ -1,9 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
-import { StyleSheet, View, Text, TouchableOpacity, I18nManager, Animated, Easing } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  I18nManager,
+  Animated,
+  Easing,
+} from "react-native";
 import Collapsible from "react-native-collapsible";
 import ArrowDownIcon from "./ArrowDownIcon";
 
-export default ({
+const CollapsibleView = ({
   children,
   title = "",
   initExpanded = false,
@@ -20,7 +28,7 @@ export default ({
   titleProps = {},
   titleStyle = {},
 }) => {
-  let controlled = expanded === null ? false : true;
+  let controlled = expanded !== null;
   const [show, setShow] = useState(initExpanded);
   const [mounted, setMounted] = useState(initExpanded);
 
@@ -73,7 +81,12 @@ export default ({
     outputRange: ["0deg", "360deg"],
   });
 
-  const TitleElement = typeof title === "string" ? <Text style={styles.TitleText}>{title}</Text> : title;
+  const TitleElement =
+    typeof title === "string" ? (
+      <Text style={styles.TitleText}>{title}</Text>
+    ) : (
+      title
+    );
 
   useEffect(() => {
     // this part is to trigger collapsible animation only after he has been fully mounted so animation would
@@ -117,7 +130,11 @@ export default ({
       </View>
       {mounted ? (
         <View style={{ width: "100%", ...collapsibleContainerStyle }}>
-          <Collapsible onAnimationEnd={handleAnimationEnd} collapsed={!show} {...{ duration, ...collapsibleProps }}>
+          <Collapsible
+            onAnimationEnd={handleAnimationEnd}
+            collapsed={!show}
+            {...{ duration, ...collapsibleProps }}
+          >
             {children}
           </Collapsible>
         </View>
@@ -125,6 +142,8 @@ export default ({
     </TouchableOpacity>
   );
 };
+
+export default CollapsibleView;
 
 const styles = StyleSheet.create({
   container: {

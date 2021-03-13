@@ -185,7 +185,4 @@ you can guess by the name. default value={}.
 
 ## Versions
 
-- 1.0.0 - Initial release.
-- 1.1.0 - added `collapsibleContainerStyle` property.
-- 1.2.0 - now the arrow icon is SVG (and not a PNG file). this enhance performance and enables arrow customization. `arrowSize` property is now replaced with `arrowStyling`.
-- 1.3.0 - now tested and fully supported on react-native web! in addition: `titleStyle` and `titleProps` properties added. `activeOpacityFeedback` property added.
+see [CHANGELOG.md](/CHANGELOG.md)
