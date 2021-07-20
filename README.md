@@ -183,9 +183,30 @@ default value: `noArrow = {false}`
 
 you can guess by the name. default value={}.
 
+#### `touchableWrapperStyle`
+
+A styling for the touchable wrapper.
+
+#### `touchableWrapperProps`
+
+An object containing props for the touchable wrapper.
+
+default value: {}
+
+#### `TouchableComponent`
+
+Pressable Component for the touchable wrapper.
+
+examples:
+
+- `TouchableComponent={TouchableHighlight}`.
+
+default value: `TouchableComponent={TouchableOpacity}`
+
 ## Versions
 
 - 1.0.0 - Initial release.
 - 1.1.0 - added `collapsibleContainerStyle` property.
 - 1.2.0 - now the arrow icon is SVG (and not a PNG file). this enhance performance and enables arrow customization. `arrowSize` property is now replaced with `arrowStyling`.
 - 1.3.0 - now tested and fully supported on react-native web! in addition: `titleStyle` and `titleProps` properties added. `activeOpacityFeedback` property added.
+-  1.4.0 - `touchableWrapperStyle`, `touchableWrapperProps` and `TouchableComponent ` properties added.

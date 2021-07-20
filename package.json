@@ -1,6 +1,6 @@
 {
   "name": "@eliav2/react-native-collapsible-view",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "description": "A collapsible View element implemented using react-native-collapsible",
   "main": "index.js",
   "homepage": "https://eliav2.github.io/react-native-collapsible-view/",
