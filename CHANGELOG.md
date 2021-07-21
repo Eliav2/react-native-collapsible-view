@@ -1,7 +1,8 @@
 ## 1.4.0
 
 - fixed a critical issue regarding for hot-reloading. now default export is not anonymous function(which making hot
-  reload not work).
+  reload not work). 
+- `touchableWrapperStyle`, `touchableWrapperProps` and `TouchableComponent ` properties added.
 
 
 ## 1.3.0

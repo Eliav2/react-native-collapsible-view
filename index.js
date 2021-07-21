@@ -117,32 +117,32 @@ const CollapsibleView = ({
       activeOpacity={activeOpacityFeedback}
       {...touchableWrapperProps}
     >
-        <View
-          style={{
-            flexDirection: rowDir,
-            alignItems: "center",
-            ...titleStyle,
-          }}
-          {...titleProps}
-        >
-          {noArrow ? null : (
-            <Animated.View style={{ transform: [{ rotate: rotateAnimDeg }] }}>
-              <ArrowDownIcon {...arrowStyling} />
-            </Animated.View>
-          )}
-          {TitleElement}
+      <View
+        style={{
+          flexDirection: rowDir,
+          alignItems: "center",
+          ...titleStyle,
+        }}
+        {...titleProps}
+      >
+        {noArrow ? null : (
+          <Animated.View style={{ transform: [{ rotate: rotateAnimDeg }] }}>
+            <ArrowDownIcon {...arrowStyling} />
+          </Animated.View>
+        )}
+        {TitleElement}
+      </View>
+      {mounted ? (
+        <View style={{ width: "100%", ...collapsibleContainerStyle }}>
+          <Collapsible
+            onAnimationEnd={handleAnimationEnd}
+            collapsed={!show}
+            {...{ duration, ...collapsibleProps }}
+          >
+            {children}
+          </Collapsible>
         </View>
-        {mounted ? (
-          <View style={{ width: "100%", ...collapsibleContainerStyle }}>
-            <Collapsible
-              onAnimationEnd={handleAnimationEnd}
-              collapsed={!show}
-              {...{ duration, ...collapsibleProps }}
-            >
-              {children}
-            </Collapsible>
-          </View>
-        ) : null}
+      ) : null}
     </TouchableComponent>
   );
 };
