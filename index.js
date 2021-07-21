@@ -25,8 +25,11 @@ const CollapsibleView = ({
   noArrow = false,
   style = {},
   activeOpacityFeedback = 0.3,
+  TouchableComponent = TouchableOpacity,
   titleProps = {},
   titleStyle = {},
+  touchableWrapperStyle = {},
+  touchableWrapperProps = {},
 }) => {
   let controlled = expanded !== null;
   const [show, setShow] = useState(initExpanded);
@@ -108,38 +111,39 @@ const CollapsibleView = ({
   });
 
   return (
-    <TouchableOpacity
-      style={[styles.container, style]}
+    <TouchableComponent
+      style={[styles.container, style, touchableWrapperStyle]}
       onPress={handleToggleShow}
       activeOpacity={activeOpacityFeedback}
+      {...touchableWrapperProps}
     >
-      <View
-        style={{
-          flexDirection: rowDir,
-          alignItems: "center",
-          ...titleStyle,
-        }}
-        {...titleProps}
-      >
-        {noArrow ? null : (
-          <Animated.View style={{ transform: [{ rotate: rotateAnimDeg }] }}>
-            <ArrowDownIcon {...arrowStyling} />
-          </Animated.View>
-        )}
-        {TitleElement}
-      </View>
-      {mounted ? (
-        <View style={{ width: "100%", ...collapsibleContainerStyle }}>
-          <Collapsible
-            onAnimationEnd={handleAnimationEnd}
-            collapsed={!show}
-            {...{ duration, ...collapsibleProps }}
-          >
-            {children}
-          </Collapsible>
+        <View
+          style={{
+            flexDirection: rowDir,
+            alignItems: "center",
+            ...titleStyle,
+          }}
+          {...titleProps}
+        >
+          {noArrow ? null : (
+            <Animated.View style={{ transform: [{ rotate: rotateAnimDeg }] }}>
+              <ArrowDownIcon {...arrowStyling} />
+            </Animated.View>
+          )}
+          {TitleElement}
         </View>
-      ) : null}
-    </TouchableOpacity>
+        {mounted ? (
+          <View style={{ width: "100%", ...collapsibleContainerStyle }}>
+            <Collapsible
+              onAnimationEnd={handleAnimationEnd}
+              collapsed={!show}
+              {...{ duration, ...collapsibleProps }}
+            >
+              {children}
+            </Collapsible>
+          </View>
+        ) : null}
+    </TouchableComponent>
   );
 };
 

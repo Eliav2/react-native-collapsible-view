@@ -183,6 +183,26 @@ default value: `noArrow = {false}`
 
 you can guess by the name. default value={}.
 
+#### `touchableWrapperStyle`
+
+A styling for the touchable wrapper.
+
+#### `touchableWrapperProps`
+
+An object containing props for the touchable wrapper.
+
+default value: {}
+
+#### `TouchableComponent`
+
+Pressable Component for the touchable wrapper.
+
+examples:
+
+- `TouchableComponent={TouchableHighlight}`.
+
+default value: `TouchableComponent={TouchableOpacity}`
+
 ## Versions
 
 see [CHANGELOG.md](/CHANGELOG.md)
