@@ -15,12 +15,13 @@
   "author": "Eliav Louski",
   "license": "MIT",
   "dependencies": {
+    "@babel/runtime": "^7.13.10",
     "react-native-collapsible": "^1.5.3",
     "react-native-svg": "^12.1.0"
   },
   "devDependencies": {
     "react": "^16.10.0",
-    "react-native": "^0.56.0"
+    "react-native": "^0.57.0"
   },
   "peerDependencies": {
     "react": "*",

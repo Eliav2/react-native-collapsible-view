@@ -1,0 +1,9 @@
+{
+  "ignore_dirs": [
+    ".git",
+    ".expo",
+    ".vscode",
+    "node_modules",
+    "example"
+  ]
+}
