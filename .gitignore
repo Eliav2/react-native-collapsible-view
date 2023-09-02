@@ -3,3 +3,5 @@ node_modules
 .idea
 .expo
 .vscode
+/dist
+/yarn-error.log

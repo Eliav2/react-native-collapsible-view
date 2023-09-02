@@ -3,5 +3,5 @@
   "compilerOptions": {
     "module": "CommonJS", // Set to CommonJS for CommonJS
     "outDir": "./dist/cjs" // Output directory for CommonJS files
-  }
+  },
 }

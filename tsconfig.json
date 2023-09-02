@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
+    "target": "esnext",
+    "module": "esnext",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
     "jsx": "react",
     "outDir": "./dist/esm",
+    "moduleResolution": "node",
   },
   "include": ["src"]
 }
