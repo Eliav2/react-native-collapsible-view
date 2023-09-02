@@ -2,7 +2,7 @@
   "name": "@eliav2/react-native-collapsible-view",
   "version": "1.4.0",
   "description": "A collapsible View element implemented using react-native-collapsible",
-  "main": "index.js",
+  "main": "dist/index.js",
   "homepage": "https://eliav2.github.io/react-native-collapsible-view/",
   "repository": {
     "type": "git",
@@ -10,7 +10,17 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm start --prefix ./example"
+    "start": "npm start --prefix ./example",
+
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc",
+    "build": "concurrently \"npm run build:cjs\" \"npm run build:esm\"",
+
+    "build-watch:esm": "tsc -w",
+    "build-watch:cjs": "tsc -w -p tsconfig.cjs.json",
+    "build-watch": "concurrently \"npm run build-watch:cjs\" \"npm run build-watch:esm\"",
+
+    "prepack": "npm run build"
   },
   "prettier": {
     "printWidth": 120
@@ -25,6 +35,7 @@
   "devDependencies": {
     "@types/react": "^18.2.21",
     "@types/react-native": "^0.72.2",
+    "concurrently": "^8.2.1",
     "react": "^16.10.0",
     "react-native": "^0.57.0",
     "typescript": "^5.2.2"
