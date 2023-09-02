@@ -7,9 +7,35 @@ import {
   I18nManager,
   Animated,
   Easing,
+  StyleProp,
+  ViewStyle,
+  ViewProps,
 } from "react-native";
 import Collapsible from "react-native-collapsible";
-import ArrowDownIcon from "./ArrowDownIcon";
+import type { CollapsibleProps } from "react-native-collapsible";
+import ArrowDownIcon, { ArrowDownIconStyling } from "./ArrowDownIcon";
+import { MakePropsOptional } from "./types";
+
+interface CollapsibleViewProps {
+  children: React.ReactNode;
+  title?: string | React.ReactNode;
+  initExpanded?: boolean;
+  expanded?: boolean | null;
+  unmountOnCollapse?: boolean;
+  isRTL?: boolean | "auto";
+  duration?: number;
+  collapsibleProps?: MakePropsOptional<CollapsibleProps>;
+  collapsibleContainerStyle?: ViewStyle;
+  arrowStyling?: ArrowDownIconStyling;
+  noArrow?: boolean;
+  style?: StyleProp<ViewStyle>;
+  activeOpacityFeedback?: number; // 0-1
+  TouchableComponent?: React.ComponentType<any>;
+  titleProps?: ViewProps;
+  titleStyle?: ViewStyle;
+  touchableWrapperStyle?: StyleProp<ViewStyle>;
+  touchableWrapperProps?: ViewProps;
+}
 
 const CollapsibleView = ({
   children,
@@ -30,9 +56,9 @@ const CollapsibleView = ({
   titleStyle = {},
   touchableWrapperStyle = {},
   touchableWrapperProps = {},
-}) => {
+}: CollapsibleViewProps) => {
   let controlled = expanded !== null;
-  const [show, setShow] = useState(initExpanded);
+  const [show, setShow] = useState<boolean | null>(initExpanded);
   const [mounted, setMounted] = useState(initExpanded);
 
   const rotateAnim = useRef(new Animated.Value(0)).current;
@@ -41,7 +67,7 @@ const CollapsibleView = ({
     if (!mounted && expanded) setMounted(true);
   }
 
-  const handleArrowRotate = (open = null) => {
+  const handleArrowRotate = (open: boolean | null = null) => {
     const _open = open === null ? show : open;
     if (!_open)
       Animated.timing(rotateAnim, {
@@ -74,7 +100,7 @@ const CollapsibleView = ({
   };
 
   // place the arrow on the left or the right based on the device direction and isRTL property
-  let rowDir = "row";
+  let rowDir: "row-reverse" | "row" = "row" as const;
   if (isRTL === "auto") isRTL = I18nManager.isRTL;
   else if (isRTL !== I18nManager.isRTL) rowDir = "row-reverse";
 
@@ -84,12 +110,7 @@ const CollapsibleView = ({
     outputRange: ["0deg", "360deg"],
   });
 
-  const TitleElement =
-    typeof title === "string" ? (
-      <Text style={styles.TitleText}>{title}</Text>
-    ) : (
-      title
-    );
+  const TitleElement = typeof title === "string" ? <Text style={styles.TitleText}>{title}</Text> : title;
 
   useEffect(() => {
     // this part is to trigger collapsible animation only after he has been fully mounted so animation would
@@ -134,11 +155,7 @@ const CollapsibleView = ({
       </View>
       {mounted ? (
         <View style={{ width: "100%", ...collapsibleContainerStyle }}>
-          <Collapsible
-            onAnimationEnd={handleAnimationEnd}
-            collapsed={!show}
-            {...{ duration, ...collapsibleProps }}
-          >
+          <Collapsible onAnimationEnd={handleAnimationEnd} collapsed={!show} {...{ duration, ...collapsibleProps }}>
             {children}
           </Collapsible>
         </View>
