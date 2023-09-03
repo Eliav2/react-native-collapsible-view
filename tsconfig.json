@@ -9,6 +9,9 @@
     "jsx": "react",
     "outDir": "./dist/esm",
     "moduleResolution": "node",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true
   },
   "include": ["src"]
 }
