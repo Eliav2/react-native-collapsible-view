@@ -29,11 +29,12 @@ https://snack.expo.io/@eliav2/react-native-collapsible-view
 ## Installation
 
 ```bash
-$ npm install @eliav2/react-native-collapsible-view
+$ npm install @eliav2/react-native-collapsible-view react-native-svg
 
 // or with yarn
-$ yarn add @eliav2/react-native-collapsible-view
+$ yarn add @eliav2/react-native-collapsible-view react-native-svg
 ```
+you have to add react-native-svg as a direct dependency for your project so auto-linking will work properly. [see details](https://github.com/software-mansion/react-native-svg/issues/1614#issuecomment-899553987) 
 
 ## Simple Usage
 

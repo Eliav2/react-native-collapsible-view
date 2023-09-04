@@ -1,3 +1,8 @@
+## 1.5.0
+- upgraded to react-native-svg@^13.13.0 and react-native-collapsible@^1.6.1
+- exported both esm and cjs modules
+- typescript support
+
 ## 1.4.0
 
 - fixed a critical issue regarding for hot-reloading. now default export is not anonymous function(which making hot

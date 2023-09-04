@@ -1,6 +1,7 @@
 import React from "react";
 import Svg, { Linecap, Linejoin, Polyline, SvgProps } from "react-native-svg";
 import { PolylineProps } from "react-native-svg";
+import { Text } from "react-native";
 
 export interface ArrowDownIconStyling {
   size?: number;
@@ -20,6 +21,7 @@ export default function ArrowDownIcon({
   polylineProps = {},
 }: ArrowDownIconStyling) {
   const roundedCorners = rounded ? { strokeLinecap: "round" as Linecap, strokeLinejoin: "round" as Linejoin } : {};
+  // return <Svg></Svg>;
   return (
     <Svg width={s} height={s} {...svgProps}>
       <Polyline
